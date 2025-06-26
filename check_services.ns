@@ -1,0 +1,16 @@
+#1/bin/bash
+
+# Script para revisar el estado de servicios importantes
+
+
+  # recomendado que cambies los servicios por los que tengas instalados aunque puedes dejar esos asi.
+
+
+     # pedir ayuda si no sabes agregar mas servicios
+SERVICIOS=("ssh" "apache2" "mysql") 
+
+for servicio in "${SERVICIOS[@]}"
+do
+	estado=$(systemctl is-active $servicio)
+	echo "Servicio $servicio: $estado"
+done
